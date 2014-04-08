@@ -1,0 +1,38 @@
+
+#!/bin/sh
+
+tmux start-server
+tmux new-session -d -s uwsgitop
+tmux new-window -tuwsgitop:0 -n mainwindow
+
+tmux send-keys -tuwsgitop:0 'ssh wmk@fe1' C-m
+tmux send-keys -tuwsgitop:0 'source /virtualEnv/mk-contest/prod/bin/activate' C-m
+tmux send-keys -tuwsgitop:0 'uwsgitop /tmp/mkcontestprod_frontend_stats.socket' C-m
+
+tmux split-window -tuwsgitop:0
+
+tmux send-keys -tuwsgitop:0 'ssh wmk@fe2' C-m
+tmux send-keys -tuwsgitop:0 'source /virtualEnv/mk-contest/prod/bin/activate' C-m
+tmux send-keys -tuwsgitop:0 'uwsgitop /tmp/mkcontestprod_frontend_stats.socket' C-m
+
+tmux split-window -tuwsgitop:0
+
+tmux send-keys -tuwsgitop:0 'ssh wmk@fe3' C-m
+tmux send-keys -tuwsgitop:0 'source /virtualEnv/mk-contest/prod/bin/activate' C-m
+tmux send-keys -tuwsgitop:0 'uwsgitop /tmp/mkcontestprod_frontend_stats.socket' C-m
+
+tmux split-window -tuwsgitop:0
+
+tmux send-keys -tuwsgitop:0 'ssh wmk@fe4' C-m
+tmux send-keys -tuwsgitop:0 'source /virtualEnv/mk-contest/prod/bin/activate' C-m
+tmux send-keys -tuwsgitop:0 'uwsgitop /tmp/mkcontestprod_frontend_stats.socket' C-m
+
+tmux split-window -tuwsgitop:0
+
+tmux send-keys -tuwsgitop:0 'ssh wmk@fe5' C-m
+tmux send-keys -tuwsgitop:0 'source /virtualEnv/mk-contest/prod/bin/activate' C-m
+tmux send-keys -tuwsgitop:0 'uwsgitop /tmp/mkcontestprod_frontend_stats.socket' C-m
+
+
+
+tmux attach-session -d -tuwsgitop
