@@ -1,0 +1,9 @@
+# rsnapshot
+15 * * * * /usr/bin/rsnapshot hourly # daily backup is ran at 11:20 pm
+20 23 * * * /usr/bin/rsnapshot daily # daily backup is ran at 11:20 pm
+05 23 * * 2 /usr/bin/rsnapshot weekly # weekly backup is ran at 11:05 pm
+
+# dejadup
+0 */4 * * * env DISPLAY=:0 /usr/bin/deja-dup --backup
+15 */4 * * * duplicity remove-older-than 1M file:///media/backupdrive/dejadup --force
+
